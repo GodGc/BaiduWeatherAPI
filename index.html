@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>天气查询</title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+    <header>
+        <input type="search" id="location" placeholder="请输入要查询的城市"/>
+        <input type="button" id="locationWeather" value="天气查询"/>
+    </header>
+    <nav>
+        <div class="box">
+            <table id="weather"></table>
+        </div>
+    </nav>
+    <footer>
+        <h4>This page is used baiduWeatherAPI to check the weather</h4>
+        <h4>by <a href="https://github.com/GodGc/">GodC</a></h4>
+    </footer>
+</body>
+</html>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/template-native.js"></script>
+<script src="js/index.js"></script>
+<script type="text/template" id='template'>
+    <%for(var i=0;i<weather_data.length;i++) {%>
+    <tr>
+        <td><%=weather_data[i].date%></td>
+        <td><img src="<%=weather_data[i].dayPictureUrl%>" alt=""></td>
+        <td><img src="<%=weather_data[i].nightPictureUrl%>" alt=""></td>
+        <td><%=weather_data[i].temperature%></td>
+        <td><%=weather_data[i].weather%></td>
+        <td><%=weather_data[i].wind%></td>
+    </tr>
+    <% } %>
+</script>
